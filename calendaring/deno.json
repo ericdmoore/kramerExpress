@@ -8,12 +8,10 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
   "imports": {
     "$lib/": "./lib/",
     "@std/": "https://deno.land/std@0.224.0/",
-    "$fresh/": "https://deno.land/x/fresh@1.6.8/",    
+    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
     "@es-toolkit/es-toolkit": "jsr:@es-toolkit/es-toolkit@^1.15.1",
     "@esm/lodash-es/": "https://esm.sh/lodash-es@4.17.21/",
     "@esm/rrule": "https://esm.sh/rrule@2.8.1",
@@ -26,16 +24,29 @@
     "preact/jsx-runtime": "npm:preact@10.19.6/jsx-runtime",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    
     "notionSDK": "https://deno.land/x/notion_sdk_deno@v0.3.9/mod.ts",
-
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js"
+    "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
+    "@tailwindcss/forms":"https://esm.sh/@tailwindcss/forms@0.5.8"
+    
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact/jsx-runtime" },
+  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "exclude": ["**/_fresh/*"],
+  "compilerOptions": {
+    "lib": ["dom", "dom.asynciterable", "deno.ns"],
+    "jsx": "precompile",
+    "jsxImportSource": "preact",
+    "jsxPrecompileSkipElements": [
+      "a",
+      "img",
+      "source",
+      "body",
+      "html",
+      "head"
+    ]
+  },
   "nodeModulesDir": true,
-  
   "movedForHeroIcon": {
     "preact": "https://esm.sh/preact@10.19.6",
     "preact/": "https://esm.sh/preact@10.19.6/",
