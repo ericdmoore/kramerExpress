@@ -9,10 +9,11 @@ const CAMEL_REPLACE = /[A-Z0-9]/g;
 function filterKebabCase<T extends Record<string, unknown>>(attrs: T): T {
   const newAttrs: Record<string, unknown> = {};
   for (const key in attrs) {
-    if (key.indexOf('-') === -1 && CAMEL_PROPS.test(key))
-      newAttrs[key.replace(CAMEL_REPLACE, '-$&').toLowerCase()] = attrs[key];
-    else
+    if (key.indexOf("-") === -1 && CAMEL_PROPS.test(key)) {
+      newAttrs[key.replace(CAMEL_REPLACE, "-$&").toLowerCase()] = attrs[key];
+    } else {
       newAttrs[key] = attrs[key];
+    }
   }
   return newAttrs as T;
 }
@@ -28,8 +29,8 @@ export interface IconTree {
 
 /**
  * recursivly build internal SVG element
- * @param tree 
- * @returns 
+ * @param tree
+ * @returns
  */
 function Tree2Element(tree: IconTree[]): ComponentChildren[] { // React.ReactElement => ComponentChildren
   return (
@@ -47,7 +48,9 @@ function Tree2Element(tree: IconTree[]): ComponentChildren[] { // React.ReactEle
 /**
  * build a SVG componant from an IconTree
  */
-export function GenIcon(data: IconTree): (props: IconBaseProps) => VNode<JSX.SVGAttributes> {
+export function GenIcon(
+  data: IconTree,
+): (props: IconBaseProps) => VNode<JSX.SVGAttributes> {
   return (props: IconBaseProps) => (
     <IconBase attr={{ ...data.attr }} {...props}>
       {Tree2Element(data.child || [])}
@@ -76,13 +79,14 @@ export function IconBase(
 ): VNode<JSX.SVGAttributes> {
   const elem = (conf: IconContext) => {
     const { attr, size, title, ...svgProps } = props;
-    let clazz = props.class || '';
+    let clazz = props.class || "";
     const computedSize = size || conf.size || "1em";
     if (conf.class) {
-      if (clazz)
+      if (clazz) {
         clazz = `${clazz} ${conf.class}`;
-      else
+      } else {
         clazz = conf.class;
+      }
     }
     let attrs = {
       stroke: conf.stroke || "currentColor",

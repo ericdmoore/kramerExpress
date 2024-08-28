@@ -17,7 +17,7 @@
     "@esm/rrule": "https://esm.sh/rrule@2.8.1",
     "@notionhq/client": "https://esm.sh/@notionhq/client@2.2.15",
     "@notionhq/client/": "https://esm.sh/@notionhq/client@2.2.15/",
-    
+
     "preact": "https://esm.sh/preact@10.19.6",
     "preact/": "https://esm.sh/preact@10.19.6/",
     "preact/hooks": "npm:preact@10.19.6/hooks",
@@ -28,8 +28,7 @@
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "@tailwindcss/forms":"https://esm.sh/@tailwindcss/forms@0.5.8"
-    
+    "@tailwindcss/forms": "https://esm.sh/@tailwindcss/forms@0.5.8"
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
   "exclude": ["**/_fresh/*"],
