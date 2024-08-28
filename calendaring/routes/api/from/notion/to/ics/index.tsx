@@ -21,7 +21,7 @@ import type { Handlers, PageProps } from "$fresh/server.ts";
   ```
 */
 // import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { HiPhoto, HiUserCircle } from "@preact-icons/hi2"
+import { HiPhoto, HiUserCircle } from "@preact-icons/hi2/1.0.12/mod.ts"
 
 export function Example() {
   return (

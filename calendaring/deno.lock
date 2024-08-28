@@ -14,6 +14,7 @@
       "npm:autoprefixer@10.4.17": "npm:autoprefixer@10.4.17_postcss@8.4.35",
       "npm:cssnano@6.0.3": "npm:cssnano@6.0.3_postcss@8.4.35",
       "npm:postcss@8.4.35": "npm:postcss@8.4.35",
+      "npm:preact@10.19.6": "npm:preact@10.19.6",
       "npm:preact@^10.22.1": "npm:preact@10.23.2",
       "npm:tailwindcss@3.4.1": "npm:tailwindcss@3.4.1_postcss@8.4.35"
     },
@@ -32,6 +33,7 @@
       "@preact-icons/common@1.0.12": {
         "integrity": "f7d7329d55c2753b0162438b120b638e5058fa406f49fe6b422e3b0694f6e0c1",
         "dependencies": [
+          "npm:preact@10.19.6",
           "npm:preact@^10.22.1"
         ]
       },
@@ -914,6 +916,10 @@
           "source-map-js": "source-map-js@1.2.0"
         }
       },
+      "preact@10.19.6": {
+        "integrity": "sha512-gympg+T2Z1fG1unB8NH29yHJwnEaCH37Z32diPDku316OTnRPeMbiRV9kTrfZpocXjdfnWuFUl/Mj4BHaf6gnw==",
+        "dependencies": {}
+      },
       "preact@10.23.2": {
         "integrity": "sha512-kKYfePf9rzKnxOAKDpsWhg/ysrHPqT+yQ7UW4JjdnqjFIeNUnNcEJvhuA8fDenxAGWzUqtd51DfVg7xp/8T9NA==",
         "dependencies": {}
@@ -1519,6 +1525,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@es-toolkit/es-toolkit@^1.15.1",
+      "npm:preact@10.19.6",
       "npm:tailwindcss@3.4.1"
     ]
   }
