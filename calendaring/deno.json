@@ -17,7 +17,6 @@
     "@esm/rrule": "https://esm.sh/rrule@2.8.1",
     "@notionhq/client": "https://esm.sh/@notionhq/client@2.2.15",
     "@notionhq/client/": "https://esm.sh/@notionhq/client@2.2.15/",
-
     "preact": "https://esm.sh/preact@10.19.6",
     "preact/": "https://esm.sh/preact@10.19.6/",
     "preact/hooks": "npm:preact@10.19.6/hooks",
@@ -34,16 +33,9 @@
   "exclude": ["**/_fresh/*"],
   "compilerOptions": {
     "lib": ["dom", "dom.asynciterable", "deno.ns"],
-    "jsx": "precompile",
+    "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "jsxPrecompileSkipElements": [
-      "a",
-      "img",
-      "source",
-      "body",
-      "html",
-      "head"
-    ]
+    "jsxPrecompileSkipElements": ["a", "img", "source", "body", "html", "head"]
   },
   "nodeModulesDir": true,
   "movedForHeroIcon": {
