@@ -5,6 +5,7 @@ import {
   notionDataFromURL,
   praseNotionURL,
 } from "$lib/cal/notion.ts";
+import { ICalendarAST } from "$lib/cal/index.ts";
 
 const url = "https://www.notion.so/kramerexpress/77c40fcec736444bbdd036897c03bf81?v=42363a90c62d40fe9768dae205d2eb1f&pvs=4";
 
@@ -21,41 +22,68 @@ Deno.test("Parse a Notion URL", () => {
   assertEquals(notionParams.searchParams["pvs"], "4");
 });
 
+
+const assertASTproperties = (ast: ICalendarAST) => {
+  assert(ast.title, "AST should have a title");
+  assert(ast.start, "AST should have a start date");
+  assert(ast.end, "AST should have an end date");
+  assert('busy' in ast, "AST should have a busy flag");
+  assert('isAllDay' in ast, "AST should have an isAllDay flag");
+  assert(['private', ''].includes(ast.visibility), "AST should have a visibility flag");
+  assert(ast.sourceOrig.data, "AST should have a sourceOrig.data");
+  assert(ast.sourceOrig.name, "AST should have a sourceOrig.name");
+  assert(ast.title, "AST should have a title");
+}
+
+
 Deno.test({
     name: "Data from Notion Database IDs", 
-
     fn: async () => {
-      const r = await notionDataFromDBid({ "DBiD": "77c40fcec736444bbdd036897c03bf81" })
-        .to
-        .ics({}).json()
-        assert( Object.keys(r).length > 0, 'Return value should at least have properties' )
-
+      const r = await notionDataFromDBid({ DBiD: "77c40fcec736444bbdd036897c03bf81" })
+        .to._data
+        r.forEach((data) => {
+          assertASTproperties(data)
+        })
     }
 });
 
 Deno.test({
   name: "Data from Notion Database URL", 
-  only: true,
   fn: async () => {
     const respDataArr = await notionDataFromURL({ url }).to._data
     for (const data of respDataArr) {
-      // console.log(data)
-      assert( Object.keys(data).length > 0, 'Return value should at least have properties' )
+      assertASTproperties(data)
     }
   }
 });
 
-Deno.test("Notion Data Retrieval Function via URL", async () => {
-  const d = await notionData({ url }).to._data
-  console.log(d)
+Deno.test({
+  name: "Notion Data Retrieval Function via URL", 
+  fn: async () => {
+    const list = await notionData({ url }).to._data
+    list.forEach((event) => {
+      assertASTproperties(event)
+    })
+  }
 });
 
-Deno.test("Notion Data Retrieval Function via ID", async () => {
-  const d = await notionData({ id: "" }).to._data
-  console.log(d)
+Deno.test({
+  name: "Notion Data Retrieval Function via ID", 
+  // https://www.notion.so/kramerexpress/PTA-Spirit-Night-ShakeShack-882526666b3a4e358d5021aa1d936a03?pvs=4
+  fn: async () => {
+    const eventList = await notionData({ id: "882526666b3a4e358d5021aa1d936a03" }).to._data
+    eventList.forEach((event) => { 
+      assertASTproperties(event)
+    })
+  }
 });
 
-Deno.test("Notion Data Retrieval Function via DBID", async () => {
-  const d = await notionData({ DBiD: "" }).to._data
-  console.log(d)
+Deno.test({
+  name: "Notion Data Retrieval Function via DBID", 
+  fn: async () => {
+    const events = await notionData({ DBiD: "77c40fcec736444bbdd036897c03bf81" }).to._data
+    events.forEach((event) => {
+      assertASTproperties(event)
+    })
+  }
 });

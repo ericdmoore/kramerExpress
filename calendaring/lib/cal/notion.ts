@@ -1,5 +1,5 @@
 import { destinations, type ICalendarAST } from "./index.ts";
-import { Client, LogLevel } from "@notionhq/client";
+import { Client } from "@notionhq/client";
 import { load as loadENVs } from "@std/dotenv/mod.ts";
 import {
   QueryResultItem, 
@@ -92,11 +92,12 @@ const convertQueryResultItemToPOJO = (i: unknown) => {
 
 const convertToAST = (i: unknown): ICalendarAST => {
   const pojo = convertQueryResultItemToPOJO(i)
-  // console.log('>> POJO:', pojo)
+  // console.log('>> POJO.Name:', )
+
   return {
-    title: pojo.properties.raw.title,
-    description: pojo.properties.raw.description,
-    location: pojo.properties.raw.location,
+    title: pojo.properties.raw.Name[0].plain_text,
+    description: pojo.properties.raw["Location(link)"],
+    location: pojo.properties.raw.Location[0].plain_text,
     isAllDay: !!pojo.properties.raw.allday,
     start: new Date(pojo.properties.raw.Dates.start),
     end: pojo.properties.raw.Dates.end ? new Date(pojo.properties.raw.Dates.end) : new Date(),
@@ -108,7 +109,7 @@ const convertToAST = (i: unknown): ICalendarAST => {
     url: new URL(pojo.public_url).href,
     sourceOrig: {
       name: 'Notion',
-      data: JSON.stringify(pojo)
+      data: new URL(pojo.public_url).href,
     },
   }
 }
@@ -141,13 +142,10 @@ export function notionDataFromURL(notionInput: NotionInputUrl) {
   const dataFromURL = async () => {
     
     await loadENVs({ export: true });
-    const auth = Deno.env.get("NOTION_SECRET")
-    const notion = new Client({ auth, logLevel: LogLevel.DEBUG});
+    const notion = new Client({ auth: Deno.env.get("NOTION_SECRET") });
     
     const parts = praseNotionURL( notionInput.url)
     const resp = await notion.databases.query({ database_id: parts.databaseId });
-    console.log('>> RESPONSE');
-
     return resp.results.map(convertToAST)
   };
 
@@ -160,11 +158,9 @@ export function notionDataFromDBid(notionInput: NotionInpuDBid) {
   const dataFromDbID = async () => {
     
       const _envs = await loadENVs({ export: true });
-      const auth = Deno.env.get("NOTION_SECRET")
-      const notion = new Client({ auth });
+      const notion = new Client({ auth: Deno.env.get("NOTION_SECRET") });
       
       const resp = await notion.databases.query({ database_id: notionInput.DBiD });
-      console.log('>> RESPONSE');
       return resp.results.map(convertToAST)
     };
   
@@ -179,9 +175,11 @@ export function notionDataFromID(notionInput: NotionInputID) {
   const dataFromID = async () => {
     await loadENVs({ export: true });
     const notion = new Client({ auth: Deno.env.get("NOTION_SECRET") });
-    const resp = notion.pages.retrieve({ page_id: notionInput.id });
-    console.log('page:', {resp});
-    return [convertToAST(resp)] as ICalendarAST[];
+    const resp = await notion.pages.retrieve({ page_id: notionInput.id });
+    // console.log('page:', resp);
+    const ast = convertToAST(resp)
+    // console.log('ast:', ast);
+    return [ast]
   };
 
   return {
