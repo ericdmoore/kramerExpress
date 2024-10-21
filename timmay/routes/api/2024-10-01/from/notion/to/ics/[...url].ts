@@ -1,9 +1,9 @@
 import type { FreshContext } from "$fresh/server.ts";
-import paginate from "$lib/notionHelp/paginate.ts";
-import notionUrlParse from "$lib/notionHelp/urlParse.ts";
+import paginate from "@lib/notionHelp/paginate.ts";
+import notionUrlParse from "@lib/notionHelp/urlParse.ts";
 import { Client } from "@notionhq/client";
-import { load } from "@std/dotenv/mod.ts";
-import get from "@esm/lodash-es/get";
+import { load } from "$std/dotenv/mod.ts";
+import { get } from "@es-toolkit/es-toolkit/compat";
 
 import type {
   DatabaseObjectResponse,

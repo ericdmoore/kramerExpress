@@ -1,11 +1,11 @@
-import { assert, assertEquals } from "@std/assert/mod.ts";
+import { assert, assertEquals } from "$std/assert/mod.ts";
 import {
   notionData,
   notionDataFromDBid,
   notionDataFromURL,
   praseNotionURL,
-} from "$lib/cal/notion.ts";
-import { ICalendarAST } from "$lib/cal/index.ts";
+} from "@lib/cal/notion.ts";
+import { ICalendarAST } from "@lib/cal/index.ts";
 
 const url =
   "https://www.notion.so/kramerexpress/77c40fcec736444bbdd036897c03bf81?v=42363a90c62d40fe9768dae205d2eb1f&pvs=4";

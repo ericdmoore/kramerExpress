@@ -20,7 +20,7 @@ import type { Handlers, PageProps } from "$fresh/server.ts";
   ```
 */
 
-import { PhotoIcon, UserCircleIcon } from "$lib/icons/mod.ts";
+import { PhotoIcon, UserCircleIcon } from "@lib/icons/mod.ts";
 
 export function Example() {
   return (

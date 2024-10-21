@@ -4,7 +4,7 @@ import { office365Data, office365Dest } from "./office365.ts";
 import { outlookData, outlookDest } from "./outlook.ts";
 import { googleCalData, googleCalDest } from "./googleCal.ts";
 import { icsData, icsDest } from "./ics.ts";
-import { notionData, notionDest } from "$lib/cal/notion.ts";
+import { notionData, notionDest } from "@lib/cal/notion.ts";
 import { z } from "https://deno.land/x/zod@v3.23.8/mod.ts";
 
 const zRepeatDayList = z.enum([
