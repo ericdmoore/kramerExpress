@@ -1,29 +1,29 @@
 # API
 
+> For version `2024-10-01`
+
 ## Sources
 
-### _/api/from_
-
-shows a list of connected providers
+### _{version}/api/from_
 
 - list of available and configured sources
 
-### _/api/from/data_
+### _{version}/api/from/data_
 
 - a form that collects inline data
 
-### _/api/from/url_
+### _{version}/api/from/url_
 
 - shows the form to collect the url
 
-### _/api/from/airtable_
+### _{version}/api/from/airtable_
 
 - shows a form to collect the airtable config information.
 - also shows an optional PubKey (w/ ttl) to use if passing in a secret.
 
 // assumes storage: GUID -> PubKey (secret private key)
 
-### _/api/from/notion_
+### _{version}/api/from/notion_
 
 - shows a form to collect the notion config information.
   - eventID
@@ -39,25 +39,25 @@ shows a list of connected providers
 
 ## Destinations
 
-### _/api/from/notion/to/_
+### _{version}/api/from/notion/to/_
 
 - shows a list of destinations that notion can route to
 - shows a preview of validated notion data
 
-### _/api/from/notion/to/email_
+### _{version}/api/from/notion/to/email_
 
 - shows destination config screen
   - to: email Address
 
-### _/api/from/notion/to/ical_
+### _{version}/api/from/notion/to/ical_
 
 - button -> [iCal](#icalFormat)
 
-### _/api/from/notion/to/googleCal_
+### _{version}/api/from/notion/to/googleCal_
 
 - shows destination config screen
 
-### _/api/from/notion/to/googleCal_
+### _{version}/api/from/notion/to/googleCal_
 
 - shows destination config screen
 
@@ -76,7 +76,6 @@ shows a list of connected providers
   - Developer Webhooks
   - Data Notifications
   - AWS:SNS
-  -
 
 ## Scheduling Blocks (premium)
 
