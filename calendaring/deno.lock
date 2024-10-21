@@ -13,6 +13,7 @@
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:autoprefixer@10.4.17": "npm:autoprefixer@10.4.17_postcss@8.4.35",
       "npm:cssnano@6.0.3": "npm:cssnano@6.0.3_postcss@8.4.35",
+      "npm:ical-generator": "npm:ical-generator@8.0.0",
       "npm:ical-generator@^8.0.0": "npm:ical-generator@8.0.0",
       "npm:postcss@8.4.35": "npm:postcss@8.4.35",
       "npm:preact@10.19.6": "npm:preact@10.19.6",

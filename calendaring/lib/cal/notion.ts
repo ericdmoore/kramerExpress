@@ -114,7 +114,6 @@ const convertToAST = (i: unknown): ICalendarAST => {
   }
 }
 
-
 export const praseNotionURL = (url: string) => {
   const u = new URL(url);
   return {
@@ -135,7 +134,6 @@ export const praseNotionURL = (url: string) => {
     viewId: u.searchParams.get("v"),
   };
 };
-
 
 export function notionDataFromURL(notionInput: NotionInputUrl) {
   
@@ -163,7 +161,6 @@ export function notionDataFromDBid(notionInput: NotionInpuDBid) {
       const resp = await notion.databases.query({ database_id: notionInput.DBiD });
       return resp.results.map(convertToAST)
     };
-  
 
   return {
     to: destinations(dataFromDbID()),
@@ -175,11 +172,11 @@ export function notionDataFromID(notionInput: NotionInputID) {
   const dataFromID = async () => {
     await loadENVs({ export: true });
     const notion = new Client({ auth: Deno.env.get("NOTION_SECRET") });
-    const resp = await notion.pages.retrieve({ page_id: notionInput.id });
-    // console.log('page:', resp);
-    const ast = convertToAST(resp)
-    // console.log('ast:', ast);
-    return [ast]
+    return [
+      convertToAST(
+        await notion.pages.retrieve({ page_id: notionInput.id })
+      )
+    ]
   };
 
   return {

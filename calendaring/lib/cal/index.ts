@@ -33,7 +33,15 @@ export const zCalendar = z.object({
   start: z.date() ,
   end: z.date(),
   attendees: z.array(z.string()),
-  organizer: z.string(),
+  organizer: z.union([
+    z.string(), 
+    z.object({ 
+      name:  z.string(), 
+      email: z.optional(z.string()),
+      mailto: z.optional(z.string()),
+      sentBy: z.optional(z.string()),
+    })
+  ]),
   visibility: z.enum(["public", "private"]),
   busy: z.boolean(),
   sourceOrig: z.object({

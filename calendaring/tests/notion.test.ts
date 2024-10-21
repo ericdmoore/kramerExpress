@@ -22,7 +22,6 @@ Deno.test("Parse a Notion URL", () => {
   assertEquals(notionParams.searchParams["pvs"], "4");
 });
 
-
 const assertASTproperties = (ast: ICalendarAST) => {
   assert(ast.title, "AST should have a title");
   assert(ast.start, "AST should have a start date");
@@ -32,7 +31,6 @@ const assertASTproperties = (ast: ICalendarAST) => {
   assert(['private', ''].includes(ast.visibility), "AST should have a visibility flag");
   assert(ast.sourceOrig.data, "AST should have a sourceOrig.data");
   assert(ast.sourceOrig.name, "AST should have a sourceOrig.name");
-  assert(ast.title, "AST should have a title");
 }
 
 
@@ -50,10 +48,10 @@ Deno.test({
 Deno.test({
   name: "Data from Notion Database URL", 
   fn: async () => {
-    const respDataArr = await notionDataFromURL({ url }).to._data
-    for (const data of respDataArr) {
-      assertASTproperties(data)
-    }
+    const eventList = await notionDataFromURL({ url }).to._data
+    eventList.forEach((event)=> {
+      assertASTproperties(event)
+    })
   }
 });
 
@@ -87,3 +85,46 @@ Deno.test({
     })
   }
 });
+
+Deno.test({
+  name: "Notion Data ICS Text Conversion",
+  fn: async () => {
+    const icsText = await notionData({ url }).to.ics({}).text()
+    
+    assert(icsText, "ICS text should available")
+    assert(icsText.includes("BEGIN:VCALENDAR"), "ICS text should start with BEGIN:VCALENDAR")
+  }
+})
+
+Deno.test({
+  name:'Varied Data Structures should be functionally equivalent',
+  fn: async () => {
+    const notionCalData = await notionData({ url })
+
+    const ics = await notionCalData.to.ics({}).json()
+    const raw = await notionCalData.to._data
+    
+    let i = 0;
+    for (const icsEvent of ics) {
+      const rawEvent = raw[i]
+      assert(icsEvent.start === rawEvent.start, "Start date should match")
+      assert(icsEvent.end === rawEvent.end, "End date should match")
+      assert(icsEvent.title === rawEvent.title, "Title should match")
+      assert(icsEvent.description === rawEvent.description, "Description should match")
+      assert(icsEvent.location === rawEvent.location, "Location should match")
+      assert(icsEvent.isAllDay === rawEvent.isAllDay, "AllDay should match")
+      assert(icsEvent.busy === rawEvent.busy, "Busy status should match")
+      assert(icsEvent.visibility === rawEvent.visibility, "Visibility should match")
+      assert(icsEvent.organizer === rawEvent.organizer, "Organizer should match")
+      assert(icsEvent.url === rawEvent.url, "URL should match")
+      i++
+    }
+    assert(ics)
+  }
+})
+
+Deno.test({
+  name:'template',
+  ignore: true,
+  fn: async () => {}
+})
