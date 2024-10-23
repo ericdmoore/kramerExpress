@@ -1,5 +1,5 @@
 import type { FreshContext } from "$fresh/server.ts";
-import { datetime, RRule } from "npm:rrule";
+import { datetime, RRule } from "@esm/rrule";
 
 enum BusyAvailBlocking {
   "BUSY" = "BUSY",
