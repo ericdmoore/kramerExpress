@@ -4,30 +4,32 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_2024_01_from_airtable_index from "./routes/api/2024.01/from/airtable/index.tsx";
-import * as $api_2024_01_from_airtable_to_googleCal_id_ from "./routes/api/2024.01/from/airtable/to/googleCal/[id].ts";
-import * as $api_2024_01_from_airtable_to_ics_id_ from "./routes/api/2024.01/from/airtable/to/ics/[id].ts";
-import * as $api_2024_01_from_airtable_to_ics_index from "./routes/api/2024.01/from/airtable/to/ics/index.tsx";
-import * as $api_2024_01_from_airtable_to_office365_id_ from "./routes/api/2024.01/from/airtable/to/office365/[id].ts";
-import * as $api_2024_01_from_airtable_to_outlook_id_ from "./routes/api/2024.01/from/airtable/to/outlook/[id].ts";
-import * as $api_2024_01_from_airtable_to_preview from "./routes/api/2024.01/from/airtable/to/preview.tsx";
-import * as $api_2024_01_from_airtable_to_yahoo_id_ from "./routes/api/2024.01/from/airtable/to/yahoo/[id].ts";
+import * as $api_2024_01_from_airtable_index from "./routes/api/2024.01/from/-airtable/index.tsx";
+import * as $api_2024_01_from_airtable_to_googleCal_id_ from "./routes/api/2024.01/from/-airtable/to/googleCal/[id].ts";
+import * as $api_2024_01_from_airtable_to_ics_id_ from "./routes/api/2024.01/from/-airtable/to/ics/[id].ts";
+import * as $api_2024_01_from_airtable_to_ics_index from "./routes/api/2024.01/from/-airtable/to/ics/index.tsx";
+import * as $api_2024_01_from_airtable_to_office365_id_ from "./routes/api/2024.01/from/-airtable/to/office365/[id].ts";
+import * as $api_2024_01_from_airtable_to_outlook_id_ from "./routes/api/2024.01/from/-airtable/to/outlook/[id].ts";
+import * as $api_2024_01_from_airtable_to_preview from "./routes/api/2024.01/from/-airtable/to/preview.tsx";
+import * as $api_2024_01_from_airtable_to_yahoo_id_ from "./routes/api/2024.01/from/-airtable/to/yahoo/[id].ts";
+import * as $api_2024_01_from_notion_index from "./routes/api/2024.01/from/-notion/index.tsx";
+import * as $api_2024_01_from_notion_to_googleCal_url_ from "./routes/api/2024.01/from/-notion/to/googleCal/[...url].ts";
+import * as $api_2024_01_from_notion_to_ics_url_ from "./routes/api/2024.01/from/-notion/to/ics/[...url].ts";
+import * as $api_2024_01_from_notion_to_ics_index from "./routes/api/2024.01/from/-notion/to/ics/index.tsx";
+import * as $api_2024_01_from_notion_to_office365_url_ from "./routes/api/2024.01/from/-notion/to/office365/[...url].ts";
+import * as $api_2024_01_from_notion_to_outlook_url_ from "./routes/api/2024.01/from/-notion/to/outlook/[...url].ts";
+import * as $api_2024_01_from_notion_to_preview from "./routes/api/2024.01/from/-notion/to/preview.tsx";
+import * as $api_2024_01_from_notion_to_yahoo_url_ from "./routes/api/2024.01/from/-notion/to/yahoo/[...url].ts";
+import * as $api_2024_01_from_url_index from "./routes/api/2024.01/from/-url/index.tsx";
+import * as $api_2024_01_from_url_to_googleCal_url_ from "./routes/api/2024.01/from/-url/to/googleCal/[...url].ts";
+import * as $api_2024_01_from_url_to_ics_url_ from "./routes/api/2024.01/from/-url/to/ics/[...url].ts";
+import * as $api_2024_01_from_url_to_office365_url_ from "./routes/api/2024.01/from/-url/to/office365/[...url].ts";
+import * as $api_2024_01_from_url_to_outlook_url_ from "./routes/api/2024.01/from/-url/to/outlook/[...url].ts";
+import * as $api_2024_01_from_url_to_preview from "./routes/api/2024.01/from/-url/to/preview.tsx";
+import * as $api_2024_01_from_url_to_yahoo_url_ from "./routes/api/2024.01/from/-url/to/yahoo/[...url].ts";
+import * as $api_2024_01_from_source_ from "./routes/api/2024.01/from/[source].tsx";
+import * as $api_2024_01_from_source_to_destination_ from "./routes/api/2024.01/from/[source]/to/[destination].tsx";
 import * as $api_2024_01_from_index from "./routes/api/2024.01/from/index.tsx";
-import * as $api_2024_01_from_notion_index from "./routes/api/2024.01/from/notion/index.tsx";
-import * as $api_2024_01_from_notion_to_googleCal_url_ from "./routes/api/2024.01/from/notion/to/googleCal/[...url].ts";
-import * as $api_2024_01_from_notion_to_ics_url_ from "./routes/api/2024.01/from/notion/to/ics/[...url].ts";
-import * as $api_2024_01_from_notion_to_ics_index from "./routes/api/2024.01/from/notion/to/ics/index.tsx";
-import * as $api_2024_01_from_notion_to_office365_url_ from "./routes/api/2024.01/from/notion/to/office365/[...url].ts";
-import * as $api_2024_01_from_notion_to_outlook_url_ from "./routes/api/2024.01/from/notion/to/outlook/[...url].ts";
-import * as $api_2024_01_from_notion_to_preview from "./routes/api/2024.01/from/notion/to/preview.tsx";
-import * as $api_2024_01_from_notion_to_yahoo_url_ from "./routes/api/2024.01/from/notion/to/yahoo/[...url].ts";
-import * as $api_2024_01_from_url_index from "./routes/api/2024.01/from/url/index.tsx";
-import * as $api_2024_01_from_url_to_googleCal_url_ from "./routes/api/2024.01/from/url/to/googleCal/[...url].ts";
-import * as $api_2024_01_from_url_to_ics_url_ from "./routes/api/2024.01/from/url/to/ics/[...url].ts";
-import * as $api_2024_01_from_url_to_office365_url_ from "./routes/api/2024.01/from/url/to/office365/[...url].ts";
-import * as $api_2024_01_from_url_to_outlook_url_ from "./routes/api/2024.01/from/url/to/outlook/[...url].ts";
-import * as $api_2024_01_from_url_to_preview from "./routes/api/2024.01/from/url/to/preview.tsx";
-import * as $api_2024_01_from_url_to_yahoo_url_ from "./routes/api/2024.01/from/url/to/yahoo/[...url].ts";
 import * as $api_2024_01_index from "./routes/api/2024.01/index.tsx";
 import * as $api_index from "./routes/api/index.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
@@ -40,52 +42,55 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/2024.01/from/airtable/index.tsx":
+    "./routes/api/2024.01/from/-airtable/index.tsx":
       $api_2024_01_from_airtable_index,
-    "./routes/api/2024.01/from/airtable/to/googleCal/[id].ts":
+    "./routes/api/2024.01/from/-airtable/to/googleCal/[id].ts":
       $api_2024_01_from_airtable_to_googleCal_id_,
-    "./routes/api/2024.01/from/airtable/to/ics/[id].ts":
+    "./routes/api/2024.01/from/-airtable/to/ics/[id].ts":
       $api_2024_01_from_airtable_to_ics_id_,
-    "./routes/api/2024.01/from/airtable/to/ics/index.tsx":
+    "./routes/api/2024.01/from/-airtable/to/ics/index.tsx":
       $api_2024_01_from_airtable_to_ics_index,
-    "./routes/api/2024.01/from/airtable/to/office365/[id].ts":
+    "./routes/api/2024.01/from/-airtable/to/office365/[id].ts":
       $api_2024_01_from_airtable_to_office365_id_,
-    "./routes/api/2024.01/from/airtable/to/outlook/[id].ts":
+    "./routes/api/2024.01/from/-airtable/to/outlook/[id].ts":
       $api_2024_01_from_airtable_to_outlook_id_,
-    "./routes/api/2024.01/from/airtable/to/preview.tsx":
+    "./routes/api/2024.01/from/-airtable/to/preview.tsx":
       $api_2024_01_from_airtable_to_preview,
-    "./routes/api/2024.01/from/airtable/to/yahoo/[id].ts":
+    "./routes/api/2024.01/from/-airtable/to/yahoo/[id].ts":
       $api_2024_01_from_airtable_to_yahoo_id_,
-    "./routes/api/2024.01/from/index.tsx": $api_2024_01_from_index,
-    "./routes/api/2024.01/from/notion/index.tsx":
+    "./routes/api/2024.01/from/-notion/index.tsx":
       $api_2024_01_from_notion_index,
-    "./routes/api/2024.01/from/notion/to/googleCal/[...url].ts":
+    "./routes/api/2024.01/from/-notion/to/googleCal/[...url].ts":
       $api_2024_01_from_notion_to_googleCal_url_,
-    "./routes/api/2024.01/from/notion/to/ics/[...url].ts":
+    "./routes/api/2024.01/from/-notion/to/ics/[...url].ts":
       $api_2024_01_from_notion_to_ics_url_,
-    "./routes/api/2024.01/from/notion/to/ics/index.tsx":
+    "./routes/api/2024.01/from/-notion/to/ics/index.tsx":
       $api_2024_01_from_notion_to_ics_index,
-    "./routes/api/2024.01/from/notion/to/office365/[...url].ts":
+    "./routes/api/2024.01/from/-notion/to/office365/[...url].ts":
       $api_2024_01_from_notion_to_office365_url_,
-    "./routes/api/2024.01/from/notion/to/outlook/[...url].ts":
+    "./routes/api/2024.01/from/-notion/to/outlook/[...url].ts":
       $api_2024_01_from_notion_to_outlook_url_,
-    "./routes/api/2024.01/from/notion/to/preview.tsx":
+    "./routes/api/2024.01/from/-notion/to/preview.tsx":
       $api_2024_01_from_notion_to_preview,
-    "./routes/api/2024.01/from/notion/to/yahoo/[...url].ts":
+    "./routes/api/2024.01/from/-notion/to/yahoo/[...url].ts":
       $api_2024_01_from_notion_to_yahoo_url_,
-    "./routes/api/2024.01/from/url/index.tsx": $api_2024_01_from_url_index,
-    "./routes/api/2024.01/from/url/to/googleCal/[...url].ts":
+    "./routes/api/2024.01/from/-url/index.tsx": $api_2024_01_from_url_index,
+    "./routes/api/2024.01/from/-url/to/googleCal/[...url].ts":
       $api_2024_01_from_url_to_googleCal_url_,
-    "./routes/api/2024.01/from/url/to/ics/[...url].ts":
+    "./routes/api/2024.01/from/-url/to/ics/[...url].ts":
       $api_2024_01_from_url_to_ics_url_,
-    "./routes/api/2024.01/from/url/to/office365/[...url].ts":
+    "./routes/api/2024.01/from/-url/to/office365/[...url].ts":
       $api_2024_01_from_url_to_office365_url_,
-    "./routes/api/2024.01/from/url/to/outlook/[...url].ts":
+    "./routes/api/2024.01/from/-url/to/outlook/[...url].ts":
       $api_2024_01_from_url_to_outlook_url_,
-    "./routes/api/2024.01/from/url/to/preview.tsx":
+    "./routes/api/2024.01/from/-url/to/preview.tsx":
       $api_2024_01_from_url_to_preview,
-    "./routes/api/2024.01/from/url/to/yahoo/[...url].ts":
+    "./routes/api/2024.01/from/-url/to/yahoo/[...url].ts":
       $api_2024_01_from_url_to_yahoo_url_,
+    "./routes/api/2024.01/from/[source].tsx": $api_2024_01_from_source_,
+    "./routes/api/2024.01/from/[source]/to/[destination].tsx":
+      $api_2024_01_from_source_to_destination_,
+    "./routes/api/2024.01/from/index.tsx": $api_2024_01_from_index,
     "./routes/api/2024.01/index.tsx": $api_2024_01_index,
     "./routes/api/index.tsx": $api_index,
     "./routes/api/joke.ts": $api_joke,
