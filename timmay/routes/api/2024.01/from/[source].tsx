@@ -1,8 +1,4 @@
-/**
- * Provide a Form that collects table ID and API key from the user
- */
-
-const preface = '/api/2024.01/from/airtable'
+import type { PageProps } from "$fresh/server.ts";
 
 const destinations = {
   airtable: '/to/airtable',
@@ -23,12 +19,12 @@ const destinations = {
  *  maybe the key IS the JWT value, which is passed around in the headers/cookies?
  * @returns 
  */
-export default function Home() {
+export default function VariableSource(props: PageProps) {
     return (
       <div class="px-4 py-8 mx-auto bg-[#86efac]">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
           <h1 class="text-4xl font-bold">Airtable</h1>
-          <form action={`${preface}`} method="post">
+          <form action={`${props.url.href}`} method="post">
             <label class="block my-2">
               <span class="text-gray-700">Secret</span>
             </label>
@@ -45,7 +41,7 @@ export default function Home() {
           <ul>
             {Object.entries(destinations).map(([name, path])=> (
                 <li>
-                    <a href={`${preface}${path}`}>
+                    <a href={`${props.url.href}${path}`}>
                         <code class="mx-2">+ {name}</code>
                     </a>
                 </li>

@@ -1,17 +1,16 @@
-
-const preface = '/api/2024.01'
+import type { PageProps } from "$fresh/server.ts";
 
 const sources = {
-    airtable: '/from/airtable',
-    data: '/from/data',
-    google: '/from/google',
-    notion: '/from/notion',
-    url: '/from/url',
-    yahoo: '/from/yahoo',
-    outlook: '/from/outlook',
+    airtable: '/airtable',
+    data: '/data',
+    google: '/google',
+    notion: '/notion',
+    url: '/url',
+    yahoo: '/yahoo',
+    outlook: '/outlook',
 }
 
-export default function Home() {
+export default function FromPage(props: PageProps) {
     return (
       <div class="px-4 py-8 mx-auto bg-[#86efac]">
         <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
@@ -21,7 +20,7 @@ export default function Home() {
             <ul>
             {Object.entries(sources).map(([name, path])=> (
                 <li>
-                    <a href={`${preface}${path}`}>
+                    <a href={`${props.url.href}${path}`}>
                         <code class="mx-2">+ {name}</code>
                     </a>
                 </li>

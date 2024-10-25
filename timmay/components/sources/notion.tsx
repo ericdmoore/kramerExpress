@@ -24,6 +24,5 @@ export const Source = ()=> <>
     <label class="block my-2">
         <span class="text-sm font-medium text-gray-700">Notion DB Id</span>
         <input type="text" name="noition-db-id" class="mt-1 block" /> 
-    </label>
-    
+    </label> 
 </>
