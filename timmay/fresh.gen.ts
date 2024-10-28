@@ -10,8 +10,6 @@ import * as $api_2024_01_from_source_to_index from "./routes/api/2024.01/from/[s
 import * as $api_2024_01_from_index from "./routes/api/2024.01/from/index.tsx";
 import * as $api_2024_01_index from "./routes/api/2024.01/index.tsx";
 import * as $api_index from "./routes/api/index.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
-import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -28,8 +26,6 @@ const manifest = {
     "./routes/api/2024.01/from/index.tsx": $api_2024_01_from_index,
     "./routes/api/2024.01/index.tsx": $api_2024_01_index,
     "./routes/api/index.tsx": $api_index,
-    "./routes/api/joke.ts": $api_joke,
-    "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
   islands: {
